@@ -2,7 +2,7 @@
   <div id="user-form" class="container">
 
         <div class="form-group">
-            <label>first name </label>
+            <label>Nombre </label>
             <input 
                 class="form-control"
                 type="text" 
@@ -11,7 +11,7 @@
             />
         </div>
         <div class="form-group">
-            <label>last name </label>
+            <label>Apellido </label>
             <input 
                 class="form-control"
                 type="text" 
@@ -20,7 +20,7 @@
             />
         </div>
         <div class="form-group">
-            <label>user name </label>
+            <label>Nombre de usuario </label>
             <input 
                 class="form-control"
                 type="text" 
@@ -29,7 +29,7 @@
             />
         </div>
         <div class="form-group">
-            <label>password </label>
+            <label>contraseña </label>
             <input 
                 class="form-control"
                 type="password" 
@@ -37,8 +37,10 @@
                 value="Doe"
             />
         </div>
-        <button v-on:click="rest_petition" class="btn btn-primary">Crear con REST</button>
-        <button v-on:click="graphql_petition" class="btn btn-primary">Crear con GraphQL</button>
+        <table class="table" >
+        <td><button v-on:click="rest_petition" class="btn btn-primary">Crear con REST</button></td>
+        <td><button v-on:click="graphql_petition" class="btn btn-primary">Crear con GraphQL</button></td>
+        </table>
   </div>
 </template>
 
@@ -58,11 +60,9 @@
     methods: {
        rest_petition(){
            this.$emit('rest:petition', this.user)
-           console.log("rest_petition")
        },
        graphql_petition(){
            this.$emit('graphql:petition', this.user)
-           console.log("graphql_petition")
        }
     },
   }
