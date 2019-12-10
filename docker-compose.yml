@@ -3,7 +3,7 @@ version: '3.7'
 services:
 
   my-app:
-    container_name: my-app
+    container_name: sa-wa
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,5 +11,5 @@ services:
       - '.:/app'
       - '/app/node_modules'
     ports:
-      - '8081:8081'
+      - '8080:8080'
   
