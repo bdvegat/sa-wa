@@ -11,7 +11,7 @@
 
 import UserForm from './components/UserForm.vue'
 import axios from 'axios'
- 
+
 export default {
   name: 'app',
   components: {
@@ -30,7 +30,7 @@ export default {
     },
   methods: {
     createUserRest(user) {
-      axios.post('http://localhost:4000/sa-auth-ms/resources/users',{
+      axios.post(String('https://192.168.99.101:4000/sa-auth-ms/resources/user'),{
         firstName:user.firstName,
         lastName:user.lastName,
         username: user.username,
@@ -43,7 +43,7 @@ export default {
     }).catch()
     },
     createUserGraphql(user) {
-    axios.post('http://localhost:5000/graphql',{query: `mutation {
+    axios.post('http://192.168.99.101:5000/graphql',{query: `mutation {
   createUser(user: {
     firstName: "${user.firstName}"
     lastName: "${user.lastName}"
