@@ -12,6 +12,9 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
 RUN npm install
 
+# Bundle app source
+COPY . /sa-api/
+RUN npm run prepublish
 
 # start app
 CMD ["npm", "run", "serve"]
