@@ -9,12 +9,13 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
-COPY package.json /app/package.json
+COPY package.json /app/
 RUN npm install
-
+RUN npm install -g @vue/cli
+RUN npm install axios
 # Bundle app source
-COPY . /sa-api/
-RUN npm run prepublish
+COPY . /app/
+
 
 # start app
 CMD ["npm", "run", "serve"]
